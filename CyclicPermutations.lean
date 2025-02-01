@@ -4,6 +4,14 @@ import «CyclicPermutations».Basic
 
 import Mathlib.Logic.Equiv.Defs
 
-def perm_n (n : Nat) : Type := Equiv.Perm (Fin n)
+import Mathlib.GroupTheory.Perm.Cycle.Concrete
 
-#check Fin.fin_one_eq_zero
+import Mathlib.GroupTheory.Abelianization
+
+def test_perm : Equiv.Perm (Fin 5) := ⟨![0,1,2,3,4], ![0,1,2,3,4], by decide, by decide⟩
+
+def test_perm12 : Equiv.Perm (Fin 5) := Equiv.swap 1 2
+
+def test_list := Equiv.Perm.toList test_perm
+
+#eval test_list
